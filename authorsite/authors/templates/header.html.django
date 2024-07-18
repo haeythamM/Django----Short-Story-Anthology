@@ -1,0 +1,17 @@
+<header class="mouse-memoirs-regular">
+    <h1>Short Story Anthology</h1>
+    {% block navigation %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" class="current">Authors</a></li>
+            <li><a href="{% url 'add' %}">Add Author</a></li>
+            <li><a href="{% url 'collections-home' %}">Anthologies</a></li>
+        <li><a href="{% url 'add-collection' %}">Add Anthology</a></li>
+        </ul>
+    </nav>
+    {% endblock %}
+</header>
+
+
+
+        

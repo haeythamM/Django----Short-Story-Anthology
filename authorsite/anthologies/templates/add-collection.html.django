@@ -1,0 +1,13 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+
+{% block content %}
+<div class="add-author-container">
+<h2>Add Anthologies</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Anthology</button>
+</form>
+</div>
+{% endblock %}

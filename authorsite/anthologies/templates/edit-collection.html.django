@@ -1,0 +1,13 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+
+{% block content %}
+<div class="details-container">
+    <h2>Edit Collection</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Collection</button>
+    </form>
+</div>
+{% endblock %}

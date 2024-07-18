@@ -1,0 +1,25 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+{% block content %}
+<div class="grid">
+    {% for collection in collections %}
+    <div class="grid_item">
+        <h2><a href="{% url 'collection-detail' collection.pk %}">{{ collection.title }}</a></h2>
+        <h3>Authors:
+        {% for author in collection.authors.all %}
+        {{ author.name }}
+        {% if forloop.counter < collection.authors.all|length %}, {% endif %}
+        {% endfor %}
+        </h3>
+        {% if collection.cover.image %}
+        <img src="{{ MEDIA_URL }}{{ collection.cover.image }}" alt="{{ collection.title }}">
+        {% else %}
+        <a href="{% url 'add-cover' collection.pk %}">Add Cover</a>
+        {% endif %}
+        <a href="{% url 'collection-detail' collection.pk %}" class="button">Details</a>
+        <a href="{% url 'edit-collection' collection.pk %}" class="button">Edit</a>
+        <a href="{% url 'delete-collection' collection.pk %}" class="button button-delete">Delete</a> <!-- Ensure consistent button styling -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

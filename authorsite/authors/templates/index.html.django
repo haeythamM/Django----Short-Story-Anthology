@@ -1,0 +1,16 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+{% block content %}
+{% load static %}
+<div class="grid">
+    {% for author in authors %}
+    <div class="grid_item">
+        <h2><a href="{% url 'detail' author.pk %}">{{ author.name }}</a></h2>
+        <img src="{{ MEDIA_URL }}{{ author.image }}" alt="{{ author.name }}">
+        <a href="{% url 'detail' author.pk %}" class="button">Details</a>
+        <a href="{% url 'edit' author.pk %}" class="button">Edit</a>
+        <a href="{% url 'delete' author.pk %}" class="button button-delete">Delete</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,240 @@
+:root {
+    --background-color: #f2f2f2;
+    --primary-color: #333;
+    --secondary-color: #fff;
+    --accent-color: #ffc107;
+    --button-bg-color: #333;
+    --button-hover-bg-color: #555;
+    --button-text-color: #fff;
+    --button-cancel-bg-color: green;
+    --button-delete-bg-color: red;
+    --warning-border-color: #e0a800;
+    --card-bg-color: #fff;
+    --card-shadow-color: rgba(0, 0, 0, 0.1);
+    --form-bg-color: #f9f9f9;
+    --form-border-color: #ccc;
+    --text-color: #333;
+    --link-color: #4CAF50;
+    --link-hover-color: #45a049;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Risque&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+}
+
+header > h1 {
+    font-family: "Risque", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 4px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+nav ul li a.current {
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* .grid_item {
+    background-color: var(--card-bg-color);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--card-shadow-color);
+} */
+
+.grid_item h2 {
+    margin-top: 0;
+}
+
+.grid_item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+}
+
+.button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.button-cancel {
+    background-color: var(--button-cancel-bg-color);
+    color: var(--button-text-color);
+    border: none;
+}
+
+.button-delete {
+    background-color: var(--button-delete-bg-color);
+    color: var(--button-text-color);
+    border: none;
+}
+
+.warning {
+    background-color: var(--accent-color);
+    border: 1px solid var(--warning-border-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow-color);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.add-author-container,
+.details-container,
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow-color);
+}
+
+.add-author-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-author-form input[type="text"],
+.add-author-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--form-border-color);
+}
+
+.add-author-form button[type="submit"],
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-author-form button[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.details-container h2 {
+    margin-top: 0;
+}
+
+.author-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow-color);
+}
+
+.author-details,
+.author-options {
+    margin-bottom: 20px;
+}
+
+.author-options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.author-options .button-group {
+    display: flex;
+    align-items: center;
+}
+
+.author-options .button-group a {
+    margin-left: 10px;
+}
+
+.author-options .button-group a.button-delete {
+    background-color: #dc3545;
+}
+
+@media screen and (max-width: 768px) {
+    .details-container {
+        padding: 10px;
+    }
+
+    .author-options {
+        justify-content: flex-start;
+    }
+
+    .author-options .button-group {
+        flex-direction: column;
+    }
+
+    .author-options .button-group a {
+        margin: 5px 0;
+    }
+}

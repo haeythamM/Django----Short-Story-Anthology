@@ -1,0 +1,3 @@
+<footer>
+    <p><small>&copy;  {% now "Y" %} Short Story Anthology App</small></p>
+  </footer>

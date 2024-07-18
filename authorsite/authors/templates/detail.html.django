@@ -1,0 +1,26 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+{% block content %}
+<div class="details-container">
+    <h2>{{ author.name }}</h2>
+    {% load static %}
+    <img src="{{ MEDIA_URL }}{{ author.image }}" alt="{{ author.name }}" class="author-image">
+    <div class="author-details">
+        {% if author.deceased %}
+            <p>Deceased: Yes</p>
+        {% else %}
+            <p>Deceased: Still alive</p>
+        {% endif %}
+        <ul>
+            <li><strong>Types:</strong> {{ author.types }}</li>
+        </ul>
+    </div>
+    <div class="author-options">
+        <h3>{{ author.name }} Options</h3>
+        <div class="button-group">
+            <a href="{% url 'edit' author.pk %}" class="button">Edit</a>
+            <a href="{% url 'delete' author.pk %}" class="button">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

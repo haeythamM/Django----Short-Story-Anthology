@@ -1,0 +1,46 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+{% block content %}
+<div class="details-container">
+    <h2>{{ collection.title }}</h2>
+    <div class="grid">
+        <div class="grid-item">
+            <h3>Author:</h3>
+            {% for author in collection.authors.all %}
+            <p>{{ author.name }}</p>
+            {% endfor %}
+        </div>
+        <div class="grid-item">
+            <h3>Stories</h3>
+            <ul>
+                {% for story in collection.storys.all %}
+                <li>
+                    {{ forloop.counter }}. {{ story.title }}
+                    <audio src="{{ MEDIA_URL }}{{ story.track.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'add-story' collection.pk %}" class="button">Add Story</a>
+        </div>
+        <div class="grid-item">
+            <h3>Collection Cover</h3>
+            {% if collection.cover.image %}
+                <img src="{{ MEDIA_URL }}{{ collection.cover.image }}" alt="{{ collection.title }}">
+            {% else %}
+                <p>No cover image available</p>
+            {% endif %}
+        </div>
+        <div class="grid-item">
+            <h3>Collection Options</h3>
+            <div class="button-group">
+                <a href="{% url 'edit-collection' collection.pk %}" class="button">Edit</a>
+                <a href="{% url 'delete-collection' collection.pk %}" class="button button-delete">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

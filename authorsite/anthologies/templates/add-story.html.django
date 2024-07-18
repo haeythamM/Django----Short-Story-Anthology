@@ -1,0 +1,12 @@
+{% extends 'authorsite/templates/base.html.django' %}
+
+{% block content %}
+<div class="add-author-container">
+<h2>Add Story Soundtrack</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Soundtrack</button>
+</form>
+</div>
+{% endblock %}
